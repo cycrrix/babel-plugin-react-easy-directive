@@ -1,0 +1,1 @@
+# babel-plugin-react-easy-directive
