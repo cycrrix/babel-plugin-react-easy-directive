@@ -14,15 +14,15 @@ module.exports = function ({ types: t }) {
             return;
           }
           let ifStatement;
-          const pIf = props.find(p => p.key.value === '*if');
+          const pIf = props.find(p => p.key.value === 'r-if');
           if (pIf) {
-            // 剔除*if属性，避免重复
+            // 剔除r-if属性，避免重复
             path.node.arguments[1].properties = props.filter(p => p !== pIf);
             ifStatement = t.ifStatement(pIf.value, t.returnStatement(path.node));
           }
 
-          const pFor = props.find(p => p.key.value === '*for');
-          // 剔除*for属性，避免重复
+          const pFor = props.find(p => p.key.value === 'r-for');
+          // 剔除r-for属性，避免重复
           path.node.arguments[1].properties = path.node.arguments[1].properties.filter(
             p => p !== pFor,
           );
